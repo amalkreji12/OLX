@@ -12,6 +12,9 @@ function Header() {
   const {user} = useContext(AuthContext)
   const {firebase} = useContext(FirebaseContext)
   const history = useHistory()
+  const handleLogin = ()=>{
+    history.push('/login')
+  }
 
   return (
     <div className="headerParentDiv">
@@ -40,7 +43,7 @@ function Header() {
           <Arrow></Arrow>
         </div>
         <div className="loginPage">
-          <span>{user ? `Welcome  ${user.displayName}` : "Login"}</span>
+          <span onClick={user ? undefined : handleLogin}>{user ? `Welcome  ${user.displayName}` : "Login"}</span>
           <hr />
         </div>
 
